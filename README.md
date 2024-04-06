@@ -1,16 +1,21 @@
-# LIDA Streamlit Application 📊
+# AI Dashboard Maker Application 📊
 
-This Streamlit application demonstrates an implementation of [LIDA](https://github.com/microsoft/lida) using Streamlit as a front end library.
+Seamlessly transform raw CSV data into charts, graphs, and infographic by leveraging 
+Lida (Language-Integrated Data Analysis) and Streamlit. By utilizing, 
+Lida's LLMs to extract meaningful insights and generate informative narratives based on your data. 
 
-![LIDA Streamlit Application](docs/images/streamlitlida.png)
 
-LIDA is a library for generating data visualizations and data-faithful infographics. LIDA is grammar agnostic (will work with any programming language and visualization libraries e.g. matplotlib, seaborn, altair, d3 etc) and works with multiple large language model providers (OpenAI, Azure OpenAI, PaLM, Cohere, Huggingface). Details on the components of LIDA are described in the [paper here](https://arxiv.org/abs/2303.02927) and in this tutorial [notebook](notebooks/tutorial.ipynb).
+Streamlit's interface is used for interactive data exploration and visualization customization. 
 
-See the project page [here](https://microsoft.github.io/lida/) for updates!.
 
-## What you will learn
+## Tools used:
+- Cohere - command model See more: [Cohere](https://cohere.com/)
+- Hugging Face See more: [Hugging face](https://huggingface.co/)
+- Streamlit See more: [Streamlit](https://streamlit.io/)
+- LIDA See more: [LIDA](https://github.com/microsoft/lida)
+- llmx See more: [llmx](https://github.com/victordibia/llmx)
+- vllm See more:[vllm](https://github.com/vllm-project/vllm)
 
-Exploring this application will help developers familiarize themselves with Large Language Models' integration, specific operations like data summarization, goal selection, and visualization. It also teaches developers how to manage secrets (like API keys) securely using .env files and showcases how to utilize pre-trained models for text generation.
 
 ## Getting Started
 
@@ -28,5 +33,3 @@ streamlit run main.py
 ## Contributing
 
 This project welcomes contributions and suggestions.
-
-Happy Learning!

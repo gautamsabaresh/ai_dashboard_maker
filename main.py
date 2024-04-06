@@ -21,37 +21,12 @@ st.write("# Your Dashboard📊")
 # Step 1 - Get OpenAI API key
 openai_key = os.getenv("API_KEY")
 
-# if not openai_key:
-#     openai_key = st.sidebar.text_input("Enter OpenAI API key:")
-#     if openai_key:
-#         display_key = openai_key[:2] + "*" * (len(openai_key) - 5) + openai_key[-3:]
-#         st.sidebar.write(f"Current key: {display_key}")
-#     else:
-#         st.sidebar.write("Please enter OpenAI API key.")
-# else:
-#     display_key = openai_key[:2] + "*" * (len(openai_key) - 5) + openai_key[-3:]
-#     st.sidebar.write(f"OpenAI API key loaded from environment variable: {display_key}")
-
-# st.markdown(
-#     """
-#     LIDA is a library for generating data visualizations and data-faithful infographics.
-#     LIDA is grammar agnostic (will work with any programming language and visualization
-#     libraries e.g. matplotlib, seaborn, altair, d3 etc) and works with multiple large language
-#     model providers (OpenAI, Azure OpenAI, PaLM, Cohere, Huggingface). Details on the components
-#     of LIDA are described in the [paper here](https://arxiv.org/abs/2303.02927) and in this
-#     tutorial [notebook](notebooks/tutorial.ipynb). See the project page [here](https://microsoft.github.io/lida/) for updates!.
-
-#    This demo shows how to use the LIDA python api with Streamlit. [More](/about).
-
-#    ----
-# """)
 
 # Step 2 - Select a dataset and summarization method
 if openai_key:
     # Initialize selected_dataset to None
     selected_dataset = None
 
-    # select model from gpt-4 , gpt-3.5-turbo, gpt-3.5-turbo-16k
     st.sidebar.write("## Text Generation Model")
     models = ["command"]
     selected_model = st.sidebar.selectbox(
@@ -239,63 +214,3 @@ if openai_key and selected_dataset and selected_method:
 
                 st.write("## Visualization Code")
                 st.code(eachVisualization.code) 
-
-
-        # selected_goal = st.selectbox('Choose a generated goal', options=goal_questions, index=0)
-
-        # # st.markdown("### Selected Goal")
-        # selected_goal_index = goal_questions.index(selected_goal)
-        # st.write(goals[selected_goal_index])
-
-        # selected_goal_object = goals[selected_goal_index]
-
-        # # Step 5 - Generate visualizations
-        # if selected_goal_object:
-        #     st.sidebar.write("## Visualization Library")
-        #     visualization_libraries = ["seaborn", "matplotlib", "plotly"]
-
-        #     selected_library = st.sidebar.selectbox(
-        #         'Choose a visualization library',
-        #         options=visualization_libraries,
-        #         index=0
-        #     )
-
-        #     # Update the visualization generation call to use the selected library.
-        #     st.write("## Visualizations")
-
-        #     # slider for number of visualizations
-        #     num_visualizations = st.sidebar.slider(
-        #         "Number of visualizations to generate",
-        #         min_value=1,
-        #         max_value=10,
-        #         value=2)
-
-        #     textgen_config = TextGenerationConfig(
-        #         n=num_visualizations, temperature=temperature,
-        #         model=selected_model,
-        #         use_cache=use_cache)
-
-        #     # **** lida.visualize *****
-        #     visualizations = lida.visualize(
-        #         summary=summary,
-        #         goal=selected_goal_object,
-        #         textgen_config=textgen_config,
-        #         library=selected_library)
-
-        #     viz_titles = [f'Visualization {i+1}' for i in range(len(visualizations))]
-
-        #     selected_viz_title = st.selectbox('Choose a visualization', options=viz_titles, index=0)
-
-        #     selected_viz = visualizations[viz_titles.index(selected_viz_title)]
-
-        #     if selected_viz.raster:
-        #         from PIL import Image
-        #         import io
-        #         import base64
-
-        #         imgdata = base64.b64decode(selected_viz.raster)
-        #         img = Image.open(io.BytesIO(imgdata))
-        #         st.image(img, caption=selected_viz_title, use_column_width=True)
-
-        #     st.write("### Visualization Code")
-        #     st.code(selected_viz.code)
